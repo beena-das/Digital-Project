@@ -1,0 +1,90 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.hero-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slider-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.hero-slider .slider-image {
+  width: 100%;
+  height: 900px;
+  object-fit: cover;
+  display: block;
+  background-repeat: no-repeat;  /* Prevents background image repetition */
+}
+
+
+.hero-overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  right: 0;
+  transform: translateY( -50%,-50%);
+  color: white;
+  text-align: center;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.hero-heading {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.hero-paragraph {
+  font-size: 1.25rem;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+.slick-dots {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hero-heading {
+    font-size: 2rem;
+  }
+
+  .hero-paragraph {
+    font-size: 1rem;
+  }
+
+  .slider-image {
+    height: 70vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-image {
+    height: 500px;
+  }
+
+  .hero-heading {
+    font-size: 1.5rem;
+  }
+
+  .hero-paragraph {
+    font-size: 0.95rem;
+  }
+}

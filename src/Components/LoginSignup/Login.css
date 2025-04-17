@@ -1,0 +1,221 @@
+/* Reset default margins */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fa;
+}
+
+/* Centering and layout for auth-wrapper */
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* full viewport */
+  background: linear-gradient(135deg, #dfe9f3, #ffffff); /* soft gradient */
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: 100px;
+}
+
+/* Auth container inside wrapper */
+.auth-container {
+  display: flex;
+  width: 50%;
+  max-width: 1000px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
+  flex-wrap: wrap;
+  margin: auto;
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+.auth-container:hover {
+  transform: scale(1.01);
+}
+
+/* Auth form */
+.auth-form {
+  flex: 1;
+  padding: 40px;
+  background-color: #fff;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Tab buttons */
+.tab-buttons {
+  display: flex;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tab-buttons button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+  background-color: #000;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.tab-buttons button:hover {
+  background-color: #333;
+}
+
+.tab-buttons .active {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Form fields */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-top: 14px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+  padding: 12px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border 0.3s;
+}
+
+form input:focus {
+  border-color: #2c2c9e;
+  outline: none;
+}
+
+/* Name fields in row */
+.name-fields {
+  display: flex;
+  gap: 10px;
+}
+
+.name-fields input {
+  flex: 1;
+}
+
+/* Terms */
+.terms {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #333;
+}
+
+.terms a {
+  color: #2c2c9e;
+  text-decoration: underline;
+}
+
+/* Submit button */
+.submit-btn {
+  margin-top: 25px;
+  padding: 12px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #333;
+}
+
+.submit-btn.signup {
+  background-color: #2c2c9e;
+}
+
+.submit-btn.signup:hover {
+  background-color: #23237e;
+}
+
+/* ---------- Responsive Media Queries ---------- */
+
+/* Tablet (768px and below) */
+@media (max-width: 992px) {
+  .auth-container {
+    width: 75%;
+    flex-direction: column;
+    padding: 40px 30px;
+    margin-top: 60px;
+  }
+
+  .auth-form {
+    padding: 30px 20px;
+  }
+
+  .tab-buttons button {
+    font-size: 14px;
+  }
+}
+
+/* Mobile (576px and below) */
+@media (max-width: 576px) {
+  .auth-container {
+    width: 95%;
+    padding: 30px 20px;
+    margin-top: 60px;
+  }
+
+  .auth-form {
+    padding: 20px 15px;
+  }
+
+  .tab-buttons {
+    flex-direction: column;
+  }
+
+  .tab-buttons button {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .name-fields {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .terms {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .submit-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

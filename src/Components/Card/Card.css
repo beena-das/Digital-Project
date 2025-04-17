@@ -1,0 +1,215 @@
+.card-section {
+  padding: 30px 10px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.card-section h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+/* Wrapper */
+.card-wrapper {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Card Styling */
+.card {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  padding: 30px;
+  max-width: 330px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* 👇 Animation setup */
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* 👇 Staggered animation */
+.card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.card:nth-child(4) {
+  animation-delay: 0.8s;
+}
+/* Add more if needed */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pseudo element for swipe-up effect */
+.card::before {
+  content: "";
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #4b9bff, #1c68d8);
+  z-index: 0;
+  transition: bottom 0.4s ease;
+  border-radius: 20px;
+}
+
+/* Hover effect */
+.card:hover::before {
+  bottom: 0;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.card * {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.card:hover .feedback,
+.card:hover .client-info h4,
+.card:hover .client-info p {
+  color: #fff;
+}
+
+/* Feedback text */
+.feedback {
+  font-style: italic;
+  color: #444;
+  margin-bottom: 25px;
+}
+
+/* Client Info */
+.client-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+}
+
+.client-info img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px dashed #3793ff;
+  transition: border 0.3s ease;
+}
+
+.card:hover .client-info img {
+  border-color: #fff;
+}
+
+.client-info h4 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.client-info p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* ======================= */
+/*      RESPONSIVE         */
+/* ======================= */
+@media (max-width: 1024px) {
+  .card-section h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .card-wrapper {
+    gap: 20px;
+  }
+
+  .card {
+    max-width: 280px;
+    padding: 25px;
+  }
+
+  .client-info img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-section {
+    padding: 40px 15px;
+  }
+
+  .card-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .card-wrapper {
+    gap: 15px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .client-info img {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-section h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .card-wrapper {
+    gap: 10px;
+  }
+
+  .card {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .client-info img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .client-info h4 {
+    font-size: 14px;
+  }
+
+  .client-info p {
+    font-size: 12px;
+  }
+}

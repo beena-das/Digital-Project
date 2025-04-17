@@ -1,0 +1,156 @@
+/* ===== Wrapper and Layout ===== */
+.about-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  margin-top: 100px;
+}
+
+.about-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  gap: 40px;
+  flex-wrap: wrap;
+  animation: fadeIn 1s forwards;
+}
+
+/* ===== Image Styling ===== */
+.image-wrapper {
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: center;
+  animation: slideInLeft 1s ease-out;
+}
+
+.about-image {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.about-image:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Text Styling ===== */
+.about-text {
+  flex: 1 1 50%;
+  animation: fadeIn 1s 0.5s forwards;
+}
+
+.about-section h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #1e63e0;
+}
+
+.about-section h2 strong {
+  color: #2a6fd3;
+}
+
+.tagline {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #555;
+  margin: 15px 0;
+}
+
+.description {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 600px;
+  margin-bottom: 25px;
+}
+
+.description strong {
+  font-weight: 600;
+  color: #4B22D1;
+}
+
+/* ===== Button Styling ===== */
+.your-consultation-btn {
+  background-color: rgb(23, 33, 220);
+  color: white;
+  padding: 12px 20px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s ease-in-out;
+}
+
+.your-consultation-btn:hover {
+  background-color: #2a6fd3;
+  transform: scale(1.05);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 992px) {
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image-wrapper {
+    margin-bottom: 30px;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+
+  .about-section h2 {
+    font-size: 2rem;
+  }
+
+  .tagline {
+    font-size: 1.3rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .your-consultation-btn {
+    font-size: 16px;
+    padding: 10px 16px;
+  }
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}

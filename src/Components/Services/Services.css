@@ -1,0 +1,227 @@
+/* Wrapper and title */
+.pricing-wrapper {
+  padding: 50px 30px;
+  background:rgb(116, 160, 224);
+
+  text-align: center;
+
+}
+
+.pricing-title {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Pricing container */
+.pricing-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+/* Card styles */
+.pricing-card {
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Swipe-up animated background on hover */
+.pricing-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #4089ec, #4fa2f7); /* Custom attractive blue gradient */
+  z-index: 0;
+  transition: bottom 0.5s ease-in-out;
+  border-radius: 16px;
+}
+
+/* On hover, slide the background from bottom to top */
+.pricing-card:hover::before {
+  bottom: 0;
+}
+
+/* Make sure inner content appears above the animated background */
+.pricing-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Scale and lift card on hover */
+.pricing-card:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Optional: Change text color to white on hover */
+.pricing-card:hover .plan-title,
+.pricing-card:hover .plan-price,
+.pricing-card:hover .plan-features li {
+  color: #fff;
+}
+
+/* Optional: Update button background on hover */
+.pricing-card:hover .order-btn {
+  background-color: #2a6fd3;
+}
+
+/* Card content */
+.plan-header {
+  padding: 30px 20px 20px;
+}
+
+.plan-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.plan-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.plan-price {
+  font-size: 1.8rem;
+  color: #333;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.plan-features {
+  list-style: none;
+  padding: 0 20px;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.plan-features li {
+  padding: 8px 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Show More button */
+.show-more-btn {
+  background: none;
+  border: none;
+  color: #2d2dc9;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.show-more-btn:hover {
+  text-decoration: underline;
+  color: #1e63e0; /* Blue color on hover */
+}
+
+/* Order Button */
+.order-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding: 20px 40px;
+}
+
+.order-btn {
+  width: 80%;
+  padding: 12px 30px;
+  background-color: #2d2dc9;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.order-btn:hover {
+  background-color: #1e1ea8;
+  transform: scale(1.05); /* Slight scaling effect */
+}
+
+/* ====================== */
+/*       RESPONSIVE       */
+/* ====================== */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .pricing-title {
+    font-size: 2rem;
+  }
+
+  .pricing-card {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .plan-price {
+    font-size: 1.5rem;
+  }
+
+  .order-btn {
+    font-size: 15px;
+    padding: 10px 24px;
+  }
+
+  .show-more-btn {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .pricing-wrapper {
+    padding: 30px 10px;
+  }
+
+  .pricing-title {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+  }
+
+  .pricing-card {
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .plan-header {
+    padding: 20px 15px 15px;
+  }
+
+  .plan-price {
+    font-size: 1.3rem;
+  }
+
+  .plan-features li {
+    font-size: 0.9rem;
+  }
+
+  .order-btn {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .show-more-btn {
+    font-size: 0.85rem;
+  }
+}

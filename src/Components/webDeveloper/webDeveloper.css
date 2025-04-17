@@ -1,0 +1,129 @@
+.web-dev-wrapper {
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 100px;
+  }
+  
+  .web-dev-hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('../Assets/webdeveloper.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 60px 20px;
+    color: white;
+    border-radius: 12px;
+    margin-bottom: 40px;
+  }
+  
+  .web-dev-hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .web-dev-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+  
+  .web-dev-content h2 {
+    font-size: 1.8rem;
+    margin: 30px 0 15px;
+  }
+  
+  .skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+  }
+  
+  .skills-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: #444;
+  }
+  
+  .target-info {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+  
+  .enroll-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 14px 30px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .enroll-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  /* ------------------------ */
+  /* 📱 Responsive Styling 💡 */
+  /* ------------------------ */
+  
+  @media screen and (max-width: 768px) {
+    .web-dev-hero h1 {
+      font-size: 2rem;
+    }
+  
+    .web-dev-hero p {
+      font-size: 1rem;
+    }
+  
+    .web-dev-content h2 {
+      font-size: 1.5rem;
+    }
+  
+    .skills-list li {
+      font-size: 1rem;
+    }
+  
+    .enroll-btn {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .web-dev-wrapper {
+      padding: 20px 10px;
+    }
+  
+    .web-dev-hero {
+      padding: 40px 10px;
+    }
+  
+    .web-dev-hero h1 {
+      font-size: 1.6rem;
+    }
+  
+    .web-dev-hero p {
+      font-size: 0.95rem;
+    }
+  
+    .skills-list li {
+      flex-direction: row;
+      align-items: flex-start;
+      font-size: 0.95rem;
+    }
+  
+    .enroll-btn {
+      font-size: 0.95rem;
+    }
+  }
+  

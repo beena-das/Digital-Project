@@ -1,0 +1,135 @@
+.app-developer-container {
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 100px;
+  }
+  
+  .app-hero-section {
+    background-image: url('../Assets/appdeveloper.jpg'); /* Make sure this image exists */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    height: 300px;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .app-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+  }
+  
+  .main-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .sub-title {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .enroll-btn {
+    background-color: #ff7f50;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: fit-content;
+  }
+  
+  .enroll-btn:hover {
+    background-color: #ff5722;
+  }
+  
+  .app-content h2 {
+    margin-top: 25px;
+    color: #444;
+    font-size: 1.5rem;
+  }
+  
+  .app-content ul {
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+  
+  .app-content li {
+    margin-bottom: 8px;
+    font-size: 1rem;
+  }
+  
+  /* -------------------- */
+  /* 🔽 Responsive Styles */
+  /* -------------------- */
+  
+  @media (max-width: 768px) {
+    .app-hero-section {
+      height: 250px;
+    }
+  
+    .app-overlay {
+      padding: 20px;
+    }
+  
+    .main-title {
+      font-size: 2rem;
+    }
+  
+    .sub-title {
+      font-size: 1rem;
+    }
+  
+    .enroll-btn {
+      font-size: 0.9rem;
+      padding: 10px 20px;
+    }
+  
+    .app-content h2 {
+      font-size: 1.3rem;
+    }
+  
+    .app-content li {
+      font-size: 0.95rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .app-hero-section {
+      height: 200px;
+    }
+  
+    .main-title {
+      font-size: 1.7rem;
+    }
+  
+    .sub-title {
+      font-size: 0.95rem;
+    }
+  
+    .enroll-btn {
+      font-size: 0.85rem;
+      padding: 8px 18px;
+    }
+  
+    .app-content h2 {
+      font-size: 1.2rem;
+    }
+  
+    .app-content li {
+      font-size: 0
+    }
+}  
