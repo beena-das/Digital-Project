@@ -15,10 +15,6 @@ const AllCoursesPage = () => {
 
   const totalPages = Math.ceil(courses.length / cardsPerPage);
 
-  console.log('AllCourse → courses:', courses);
-console.log('AllCourse → currentCourses:', currentCourses);
-
-
   return (
     <section className="all-courses">
       <h2>All Courses</h2>
