@@ -6,12 +6,13 @@ html, body {
 
 body {
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .hero-wrapper {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   overflow: hidden;
 }
 
@@ -21,59 +22,83 @@ body {
   position: relative;
 }
 
-.hero-slider .slider-image {
+.hero-slider {
   width: 100%;
-  height: 900px;
-  object-fit: cover;
-  display: block;
-  background-repeat: no-repeat;  /* Prevents background image repetition */
+  height: 100%;
 }
 
+.slider-image {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+}
 
 .hero-overlay-content {
   position: absolute;
-  top: 50%;
-  left: 10%;
-  right: 0;
-  transform: translateY( -50%,-50%);
-  color: white;
-  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+
+  box-sizing: border-box;
+  padding: 0 40px; /* ✅ consistent horizontal padding (like navbar) */
+}
+
+.hero-overlay-content > div {
+  max-width: 800px;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 80%;
+  border-radius: 12px;
+  color: #fff;
+  text-align: left;
+  width: 100%;
+  height: auto;
+  padding: 20px 40px; /* ✅ horizontal padding inside box too */
+  box-sizing: border-box;
 }
 
 .hero-heading {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: bold;
   margin: 0;
+  text-align: left;
 }
 
 .hero-paragraph {
-  font-size: 1.25rem;
-  margin-top: 10px;
-  line-height: 1.4;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  font-size: 1.29rem;
+  margin-top: 20px;
+  line-height: 1.6;
+  text-align: left;
 }
 
 .slick-dots {
   display: none;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
-  .hero-heading {
-    font-size: 2rem;
-  }
-
-  .hero-paragraph {
-    font-size: 1rem;
+  .hero-wrapper {
+    height: auto; /* allow wrapper to grow with image */
   }
 
   .slider-image {
-    height: 70vh;
+    height: auto; /* let it scale naturally */
+    max-height: 80vh; /* don't let it stretch too far */
   }
 }
+
 
 @media (max-width: 480px) {
   .slider-image {

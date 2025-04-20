@@ -1,0 +1,118 @@
+.counter-section {
+  background: url('../Assets/counter1.jpg') no-repeat center center/cover;
+  background-attachment: fixed;
+  position: relative;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter-overlay {
+  background-color: rgba(0, 47, 108, 0.85);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  width: 90%;
+  max-width: 900px;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+
+.counter-box {
+  padding: 30px 15px;
+}
+
+.counter-box:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background-color: white;
+}
+
+.counter-box h2 {
+  font-size: 36px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.counter-box p {
+  font-size: 14px;
+  margin: 8px 0 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ✅ Tablet: Keep all 4 boxes in a row */
+@media (max-width: 768px) {
+  .counter-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+
+  .counter-box {
+    flex: 1;
+    padding: 30px 15px;
+  }
+
+  .counter-box:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background-color: white;
+  }
+}
+
+/* ✅ Mobile: 2 by 2 grid with lines */
+@media (max-width: 480px) {
+  .counter-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+  }
+
+  .counter-wrapper::before,
+  .counter-wrapper::after {
+    content: '';
+    position: absolute;
+    background-color: white;
+  }
+
+  .counter-wrapper::before {
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    transform: translateX(-0.5px);
+  }
+
+  .counter-wrapper::after {
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    transform: translateY(-0.5px);
+  }
+
+  .counter-box {
+    padding: 20px 10px;
+  }
+}
