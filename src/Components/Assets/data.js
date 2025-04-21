@@ -24,7 +24,7 @@ const card = [
     id: 3,
     name: "Sweta",
     role: "CEO",
-    feedback: "They really helped me a lot in setting up my website.",
+    feedback: "Really appreciate their work and afford at such a low price. Always recommended.",
     image: sweta
   },
   {
@@ -45,7 +45,7 @@ const card = [
     id: 6,
     name: "Sweety",
     role: "CEO",
-    feedback: "They really helped me a lot in setting up my website.",
+    feedback: "Really appreciate their work and afford at such a low price. Always recommended.",
     image: Sweety
   },
 ];

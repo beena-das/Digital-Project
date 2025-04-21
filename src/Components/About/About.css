@@ -6,7 +6,7 @@
   padding: 50px 20px;
   background-color: #f9f9f9;
   box-sizing: border-box;
-  margin-top: 100px;
+  
 }
 
 .about-section {
@@ -51,7 +51,7 @@
 .about-section h2 {
   font-size: 2.5rem;
   font-weight: 600;
-  color: #1e63e0;
+  color: #002f6c;
 }
 
 .about-section h2 strong {
@@ -80,10 +80,10 @@
 
 /* ===== Button Styling ===== */
 .your-consultation-btn {
-  background-color: rgb(23, 33, 220);
+  background: linear-gradient(to right, #002f6c,rgb(20, 73, 142), rgb(41, 90, 169));
   color: white;
   padding: 12px 20px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   border: none;
   border-radius: 6px;

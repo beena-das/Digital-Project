@@ -2,8 +2,12 @@ import React from 'react'
 import './Home.css'
 import HeroSection from '../HeroSection/HeroSection'
 import AboutSection from '../About/About'
-import Services from '../Services/Services'
 import Card from '../Card/Card'
+import Whychooseus from '../whychooseus/whychooseus'
+import Counter from '../Counter/counter'
+import Popularcourse from '../allCourse/popularCourse'
+import AllCourses from '../allCourse/allCourse'
+
 
 function Home() {
   return (
@@ -11,8 +15,11 @@ function Home() {
     
     <HeroSection/>
     <AboutSection/>
-    <Services/>
+    <Popularcourse/>
+    <Whychooseus/>
+    <Counter/>
     <Card/>
+    
 
  
     </div>

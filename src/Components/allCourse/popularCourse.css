@@ -1,0 +1,270 @@
+.popular-courses {
+    padding: 40px;
+    max-width: 1300px;
+    margin: auto;
+  }
+  
+  .popular-courses .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .popular-courses .highlight {
+    color: #0056b3;
+  }
+  
+  .view-all {
+    background: transparent;
+    border: 1px solid #0056b3;
+    color: #0056b3;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .view-all:hover {
+    background-color: #0056b3;
+    color: white;
+  }
+  
+  .courses-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 24px;
+    transition: transform 0.5s ease;
+  }
+  
+  .course-card {
+    border: 1px solid #ddd;
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    opacity: 1;
+    transform: translateY(40px);
+    transition: all 0.6s ease;
+  }
+
+/* Class that triggers animation */
+.course-card.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+  
+  .course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .course-card:nth-child(odd) {
+    animation-delay: 0.2s;
+  }
+  
+  .course-card:nth-child(even) {
+    animation-delay: 0.4s;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .course-image {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 6px 6px 0 0;
+  }
+  
+  .course-image img:first-child {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+  .logo-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background-color: white;
+    padding: 8px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  .logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+   
+  
+  .centered-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.5); /* optional for better visibility */
+    padding: 8px 16px;
+    border-radius: 8px;
+    z-index: 1;
+    text-align: center;
+  }
+  
+  
+  .course-card h3 {
+    font-size: 1rem;
+    margin: 2.5rem 0 0.5rem;
+    text-align: center;
+  }
+  
+  .rating {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+  
+  .register-btn {
+    background: linear-gradient(to right, #002f6c,rgb(20, 73, 142), rgb(41, 90, 169));
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .register-btn:hover {
+    background-color: #003399;
+    transition: background-color 0.3s;
+  }
+  
+  /* Popup Overlay */
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Popup Box */
+  .popup-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: slideIn 0.5s ease-out;
+  }
+  
+  /* Close Button */
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Form Styling */
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .register-form input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+  }
+  
+  .register-form button {
+    padding: 10px;
+    background-color: #003399;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .register-form button:hover {
+    background-color: #002080;
+  }
+  
+  /* Keyframes for Popup Slide-In */
+  @keyframes slideIn {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1024px) {
+    .courses-container {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Adjusting column width for medium screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .courses-container {
+      grid-template-columns: 1fr; /* 1 column for smaller screens */
+    }
+  
+    .popular-courses {
+      padding: 20px; /* Reduced padding for smaller screens */
+    }
+  
+    .view-all {
+      padding: 6px 12px;
+      font-size: 14px;
+    }
+  
+    .course-card h3 {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .view-all {
+      padding: 4px 10px;
+      font-size: 12px;
+    }
+    .course-card {
+      padding: 12px; /* Smaller padding on small screens */
+    }
+    .register-btn {
+      padding: 8px 14px;
+    }
+  }
+  

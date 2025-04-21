@@ -1,11 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Navbar.css";
 import logo from '../Assets/logo.jpg';
 import { Link } from "react-router-dom";
 
-
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false); // 👈 new state for dropdown
+
+  const dropdownRef = useRef();
+
+useEffect(() => {
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setDropdownOpen(false);
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+  return () => document.removeEventListener("mousedown", handleClickOutside);
+}, []);
+
+
 
   return (
     <nav className="navbar">
@@ -21,18 +36,8 @@ function Navbar() {
       <div className={`nav-menu ${menuOpen ? "active" : ""}`}>
         <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
         <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
-
-        <div className="dropdown">
-          <span>Courses ▾</span>
-          <div className="dropdown-content">
-            <Link to="/courses/web" onClick={() => setMenuOpen(false)}>Web Development</Link>
-            <Link to="/courses/app" onClick={() => setMenuOpen(false)}>App Development</Link>
-          </div>
-        </div>
-
-        <Link to="/services" onClick={() => setMenuOpen(false)}>Services</Link>
+        <Link to="/all-course" onClick={() => setMenuOpen(false)}>Course</Link>
         <Link to="/Contact" onClick={() => setMenuOpen(false)}>Contact Us</Link>
-
         <Link to="/Login" onClick={() => setMenuOpen(false)} className="Login">Login</Link>
       </div>
     </nav>
