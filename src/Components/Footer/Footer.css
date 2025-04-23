@@ -1,6 +1,8 @@
 .footer {
   background: linear-gradient(to bottom, #002f6c,rgb(102, 139, 175), rgb(235, 237, 240));
   color: #1c1c1c;
+  background-color: #ffffff; /* White background */
+  color: #1c1c1c; /* Dark text for contrast */
   padding: 50px 20px 30px;
   font-family: Arial, sans-serif;
   border-top: 1px solid #ddd;
@@ -15,10 +17,11 @@
   margin: 0 auto;
 }
 
-
 .footer-section {
   flex: 1 1 150px;
   min-width: 150px;
+  font-size: 1.15rem;
+  color: #fff;
 }
 
 .footer-section h3 {
@@ -28,20 +31,23 @@
 }
 
 .footer-section ul {
+  font-size: 1rem;
+  color: #e1e1e1;
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 
 .footer-section ul li {
   margin-bottom: 10px;
 }
 
 .footer-section ul li a {
-  font-size: 1rem;
-  color: #e1e1e1;
   text-decoration: none;
   transition: color 0.3s ease;
+  font-size: 1rem;
+  color: #e1e1e1;
 }
 
 .footer-section ul li a:hover {
@@ -77,7 +83,7 @@
 }
 
 .footer-contact a {
-  color: #007acc;
+  color:rgb(80, 129, 193);
   text-decoration: none;
 }
 
@@ -90,7 +96,7 @@
 }
 
 .footer-social a {
-  color: #666;
+  color: #002f6c;
   margin: 0 10px;
   font-size: 18px;
   transition: color 0.3s;
@@ -146,15 +152,5 @@
   .footer {
     padding: 40px 15px 20px;
   }
-  .footer-section h3 {
-    font-size: 16px;
-    text-align: center;
-  }
-  .footer-social a {
-    font-size: 16px;
-    margin: 0 8px;
-  }
-  .footer-bottom {
-    font-size: 12px;
-  }
 }
+

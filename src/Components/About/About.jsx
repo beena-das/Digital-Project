@@ -17,7 +17,7 @@ const About = () => {
   };
 
   return (
-    <div className="about-wrapper">
+    <div className="about-wrapper" id="about">
       <div className="about-section">
         <div className="image-wrapper" data-aos="flip-left">
           <img src={marketingImage} alt="Digital Marketing" className="about-image" />

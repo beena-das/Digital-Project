@@ -1,56 +1,74 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { ArrowRight, Code, Shield, Zap } from 'lucide-react';
 import './HeroSection.css';
-import Slider from 'react-slick';
-import Typewriter from 'typewriter-effect';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import slider1 from '../Assets/slider1.jpg';
-import slider2 from '../Assets/slider2.jpg';
-import slider3 from '../Assets/slider3.jpg';
-import slider4 from '../Assets/slider4.jpg';
+import { Link, useNavigate } from 'react-router-dom';
 
-const images = [slider1, slider2, slider3, slider4];
 
-function HeroSection() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 300,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-  };
+const HeroSection = () => {
+  const [scrollY, setScrollY] = useState(0);
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <div className="hero-wrapper">
-      <div className="hero-slider">
-        <Slider {...settings}>
-          {images.map((src, index) => (
-            <div key={index}>
-              <img src={src} alt={`slide-${index}`} className="slider-image" />
-            </div>
-          ))}
-        </Slider>
-        <div className="hero-overlay-content">
-          <h1 className="hero-heading">
-            <Typewriter
-              options={{
-                strings: ['Boost Online Reach', 'For Your Brand'],
-                autoStart: true,
-                loop: true,
-                pauseFor: 1500,
-              }}
-            />
+    <section className="hero-section">
+      <div 
+        className="hero-background"
+        style={{ transform: `translateY(${scrollY * 0.4}px) `}}
+      >
+        <div className="gradient-overlay"></div>
+      </div>
+      
+      <div className="hero-content">
+        <div className="hero-text-container">
+          <h1 className="hero-title">
+            <span className="hero-title-line">Innovative Software</span>
+            <span className="hero-title-line">Solutions for the Future</span>
           </h1>
-          <p className="hero-paragraph">
-            Welcome to the online world of <strong>Coder Digital</strong>! We are thrilled to have you here and introduce you to our exceptional products and services. Get ready to embark on a journey of quality, innovation, and customer satisfaction.
+          
+          <p className="hero-subtitle">
+            We build powerful, scalable applications that transform businesses
+            and drive exceptional results.
           </p>
+          
+          <div className="hero-cta">
+          <Link to="/login">
+           <button className="cta-button primary">
+             Sign In
+             <ArrowRight size={18} />
+           </button>
+         </Link>
+            <button onClick={()=>navigate('/about')} className="cta-button secondary">
+              Learn More
+            </button>
+          </div>
+         
+         
+        </div>
+        
+        <div className="hero-image-container">
+          <div className="floating-element element-1"></div>
+          <div className="floating-element element-2"></div>
+          <div className="floating-element element-3"></div>
+          <img 
+            src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+            alt="Software visualization" 
+            className="hero-image"
+          />
         </div>
       </div>
-    </div>
+    </section>
   );
-}
+};
 
 export default HeroSection;

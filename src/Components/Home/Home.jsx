@@ -7,6 +7,8 @@ import Whychooseus from '../whychooseus/whychooseus'
 import Counter from '../Counter/counter'
 import Popularcourse from '../allCourse/popularCourse'
 import AllCourses from '../allCourse/allCourse'
+import Services from '../Services/Services'
+import Login from '../LoginSignup/Login'
 
 
 function Home() {
@@ -18,6 +20,7 @@ function Home() {
     <Popularcourse/>
     <Whychooseus/>
     <Counter/>
+    <Services/>
     <Card/>
     
 

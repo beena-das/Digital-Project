@@ -11,10 +11,6 @@ function Login() {
 
   return (
     <div className="auth-container">
-      {/* Left Image Section */}
-      {/* <div className="auth-image">
-        <img src="/your-image-path.png" alt="Signup Visual" />
-      </div> */}
 
       {/* Right Form Section */}
       <div className="auth-form">

@@ -42,6 +42,7 @@ export default function Footer() {
         <div className="footer-section about">
           <h3>About Coder's Web</h3>
           <p>Coder's Web is a future-focused software development company delivering customized solutions, mobile and web apps, and scalable digital platforms. We’re committed to innovation and transforming the way businesses operate through technology.</p>
+
         </div>
       </div>
 

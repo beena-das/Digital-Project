@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import './Contact.css';
+import image from '../Assets/contact.jpg'
+import { IoLocationOutline } from "react-icons/io5";
+import { MdOutlinePhoneForwarded } from "react-icons/md";
+import { MdOutlineMailOutline } from "react-icons/md";
+
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -21,41 +27,63 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(`Form Submitted:\n${JSON.stringify(formData, null, 2)}`);
-    // Later, you can replace this with API call
   };
 
   return (
-    <div>
-    <div className="contact-container">
-      <div className="contact-left">
-        <p><strong>Email: </strong> support@coderdigital.in</p>
-        <p><strong>Contact us: </strong> for Customer Course Support at +91 9097470943</p>
-        <p><strong>Address: </strong> laxmi nagar, delhi</p>
-        <p><em>We are also available on the same numbers on <span style={{ color: "green" }}>WhatsApp</span></em></p>
-      </div>
-      <div className="contact-right">
-        <h3>
-          Have a query? Fill the form below and we will reach to you sooner than you expect
-        </h3>
+    <div className="contact-wrapper">
+  <h2 className="section-title">Get In Touch</h2>
+  <p className="section-subtitle">
+    Have questions or ready to start your project? Contact us today!
+  </p>
+
+  <div className="contact-container">
+    <div className="contact-left">
+      <h3>Contact Information</h3>
+      <p><strong> <IoLocationOutline className="contact-icon"/> Address: </strong><br></br>     123 Tech Avenue, San Francisco, CA 94107, USA</p>
+      <p><strong> <MdOutlinePhoneForwarded className="contact-icon" /> Phone: </strong><br></br> +1 (555) 123-4567</p>
+      <p><strong><MdOutlineMailOutline className="contact-icon" /> Email: </strong><br></br> info@techsolutions.com</p>
+      <img src={image} alt="" />
+    </div>
+
+    <div className="contact-right">
+      <h3>Send Us a Message</h3>
         <form onSubmit={handleSubmit}>
           <div className="input-row">
-            <input type="text" name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange}
-              required
-            />
-            <input type="text" name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange}
-              required
-            />
+            <div className="form-group">
+              <input
+                type="text" name="firstName" placeholder=" " value={formData.firstName} onChange={handleChange} required
+              />
+              <label>First Name</label>
+            </div>
+
+            <div className="form-group">
+              <input
+                type="text" name="lastName" placeholder=" " value={formData.lastName} onChange={handleChange} required
+              />
+              <label>Last Name</label>
+            </div>
           </div>
 
-          <input type="email" name="email" placeholder="Email Address" value={formData.email} onChange={handleChange}
-            required
-          />
-          <input type="tel" name="phone" placeholder="Phone" value={formData.phone} onChange={handleChange}
-            required
-          />
-          <textarea  name="message" placeholder="Your Message" rows="4" value={formData.message} onChange={handleChange}
-            required
-          />
+          <div className="form-group">
+            <input
+              type="email" name="email" placeholder=" " value={formData.email} onChange={handleChange} required
+            />
+            <label>Email Address</label>
+          </div>
+
+          <div className="form-group">
+            <input
+              type="tel" name="phone" placeholder=" " value={formData.phone} onChange={handleChange} required
+            />
+            <label>Phone</label>
+          </div>
+
+          <div className="form-group">
+            <textarea
+              name="message" placeholder=" " rows="4" value={formData.message} onChange={handleChange} required
+            />
+            <label>Your Message</label>
+          </div>
 
           <button type="submit">Submit Form</button>
         </form>

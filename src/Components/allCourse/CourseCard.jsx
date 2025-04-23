@@ -16,8 +16,7 @@ const CourseCard = ({ image, title, reviews, users, logo }) => {
     <>
       <div className="course-card">
         <img src={image} alt="Course" className="course-image" />
-        
-        <h3>{title}</h3>
+         <h3>{title}</h3>
         <div className="rating">
           <span>⭐️⭐️⭐️⭐️⭐️</span>
           <p>{reviews} | {users} User Reviews</p>

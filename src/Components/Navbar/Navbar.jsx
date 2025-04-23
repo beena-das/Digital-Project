@@ -1,47 +1,82 @@
-import React, { useEffect, useRef, useState } from "react";
-import "./Navbar.css";
-import logo from '../Assets/logo.jpg';
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Menu, X, Code, ChevronDown } from 'lucide-react';
+import './Navbar.css';
+import { Link } from 'react-router-dom';
 
-function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false); // 👈 new state for dropdown
 
-  const dropdownRef = useRef();
+const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-useEffect(() => {
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setDropdownOpen(false);
-    }
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
   };
 
-  document.addEventListener("mousedown", handleClickOutside);
-  return () => document.removeEventListener("mousedown", handleClickOutside);
-}, []);
-
+  const [isOpen, setIsOpen] = useState(false);
 
 
   return (
-    <nav className="navbar">
-      <div className="logo">
-        <img src={logo} alt="logo" />
-        <p>Coders</p>
-      </div>
+    <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="navbar-container">
+        <div className="navbar-logo">
+          <Code size={28} />
+          <span>TechPro</span>
+        </div>
 
-      <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
-        &#9776;
-      </div>
+        <div className="navbar-mobile-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </div>
 
-      <div className={`nav-menu ${menuOpen ? "active" : ""}`}>
-        <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-        <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
-        <Link to="/all-course" onClick={() => setMenuOpen(false)}>Course</Link>
-        <Link to="/Contact" onClick={() => setMenuOpen(false)}>Contact Us</Link>
-        <Link to="/Login" onClick={() => setMenuOpen(false)} className="Login">Login</Link>
+        <div className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
+        <a href="/" className="nav-link active" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
+        <a href="#service" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Service</a>
+        <a href="#about" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>About</a>
+        
+        <div
+          className="nav-link dropdown"
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+          onMouseEnter={() => {
+            if (window.innerWidth > 768) setIsDropdownOpen(true);
+          }}
+          onMouseLeave={() => {
+            if (window.innerWidth > 768) setIsDropdownOpen(false);
+          }}
+          onClick={() => {
+            if (window.innerWidth <= 768) {
+              toggleDropdown();
+            }
+          }}
+        >
+          <span>Courses <ChevronDown size={16} /></span>
+          {isDropdownOpen && (
+            <div className="dropdown-menu">
+              <a href="#Pcourse" className="dropdown-item" onClick={() => setIsMobileMenuOpen(false)}>Web Development</a>
+              <a href="#Pcourse" className="dropdown-item" onClick={() => setIsMobileMenuOpen(false)}>App Development</a>
+              <a href="#Pcourse" className="dropdown-item" onClick={() => setIsMobileMenuOpen(false)}>Python</a>
+            </div>
+          )}
+        </div>
+        
+        <a href="/contact" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
+        <Link to="/login" className="nav-link">
+          <button onClick={() => setIsMobileMenuOpen(false)}>Login/Signup</button>
+        </Link>
+
+
+        </div>
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;

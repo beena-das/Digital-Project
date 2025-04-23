@@ -32,7 +32,7 @@ const Courses = () => {
 
 
   return (
-    <section className="popular-courses">
+    <section className="popular-courses" id='Pcourse'>
       <div className="header">
       <h2>
         Trending <span className="highlight">Programs</span>
