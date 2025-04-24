@@ -30,7 +30,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact-wrapper">
+    <div className="contact-wrapper"  id='contact'> 
   <h2 className="section-title">Get In Touch</h2>
   <p className="section-subtitle">
     Have questions or ready to start your project? Contact us today!

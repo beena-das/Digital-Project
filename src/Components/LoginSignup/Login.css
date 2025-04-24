@@ -1,221 +1,288 @@
-/* Reset default margins */
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f5f7fa;
-}
-
-/* Centering and layout for auth-wrapper */
-.auth-wrapper {
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* full viewport */
-  background: linear-gradient(135deg, #dfe9f3, #ffffff); /* soft gradient */
+  z-index: 9999;
   padding: 20px;
   box-sizing: border-box;
+  overflow-y: auto;
 }
 
-/* Auth container inside wrapper */
-.auth-container {
+
+
+/* Popup Wrapper */
+.popup-wrapper {
+  background: white;
+  border-radius: 20px;
   display: flex;
-  width: 50%;
-  max-width: 1000px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 16px;
+  flex-direction: row;
+  width: 100%;
+  max-width: 900px;
+  max-height: 100%;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-  transition: transform 0.4s ease;
-  flex-wrap: wrap;
-  margin: auto;
-  margin-top: 100px;
-  padding: 50px;
-  box-sizing: border-box;
+  animation: slideIn 0.3s ease;
 }
 
-.auth-container:hover {
-  transform: scale(1.01);
-}
 
-/* Auth form */
-.auth-form {
-  flex: 1;
-  padding: 40px;
-  background-color: #fff;
-  min-width: 300px;
+/* Adjustments for Login Mode */
+.popup-wrapper.login-mode .popup-right {
   display: flex;
+  gap: 30px;
   flex-direction: column;
   justify-content: center;
 }
 
-/* Tab buttons */
+.popup-wrapper.login-mode .popup-left {
+  padding: 40px 20px;
+}
+
+
+.login-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 1000;
+  border-radius: 50%;
+}
+
+
+/* Popup Content */
+.popup-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.popup-left {
+  background-color: #0a2c6b;
+  color: white;
+  flex: 1;
+  padding: 60px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  min-height: 100%;
+}
+.popup-left h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.popup-left p {
+  font-size: 15px;
+  max-width: 240px;
+  line-height: 1.4;
+  margin-bottom: 30px;
+}
+.popup-left img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+.speaker-name {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.speaker-role {
+  font-size: 14px;
+  opacity: 0.8;
+}
+.popup-right {
+  flex: 1;
+  padding: 40px 30px;
+  background: white;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+/* Tabs */
 .tab-buttons {
   display: flex;
-  margin-bottom: 25px;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
-
 .tab-buttons button {
-  flex: 1;
-  padding: 12px;
+  padding: 10px 20px;
   border: none;
+  background: #002f6c;
+  color: white;
+  border-radius: 20px;
   cursor: pointer;
-  background-color: #000;
-  color: #fff;
+  opacity: 0.6;
   font-weight: 600;
-  font-size: 15px;
-  transition: background-color 0.3s, color 0.3s;
 }
-
-.tab-buttons button:hover {
-  background-color: #333;
-}
-
 .tab-buttons .active {
-  background-color: #fff;
-  color: #000;
+  opacity: 1;
+  transform: scale(1.05);
 }
 
-/* Form fields */
+/* Form */
 form {
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
-
-form label {
-  margin-top: 14px;
-  font-weight: 600;
-  font-size: 14px;
+.form-group {
+  margin-bottom: 10px;
 }
-
-form input[type="text"],
-form input[type="email"],
-form input[type="password"] {
-  padding: 12px;
-  margin-top: 6px;
+input, select {
+  padding: 10px;
+  border-radius: 10px;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-  transition: border 0.3s;
+  width: 100%;
 }
 
-form input:focus {
-  border-color: #2c2c9e;
-  outline: none;
+.login-btn p{
+text-align: center;
 }
 
-/* Name fields in row */
-.name-fields {
-  display: flex;
-  gap: 10px;
+.login-btn a{
+text-decoration: none;
 }
 
-.name-fields input {
-  flex: 1;
+.submit-btn {
+  background: #002f6c;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+}
+.submit-btn:hover {
+  background: linear-gradient(to left, #002f6c, rgb(20, 73, 142), rgb(41, 90, 169));
 }
 
 /* Terms */
 .terms {
-  margin-top: 14px;
   display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  color: #333;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.2;
 }
-
+.terms input[type="checkbox"] {
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+}
+.terms label {
+  display: block;
+  cursor: pointer;
+}
 .terms a {
-  color: #2c2c9e;
+  color: #002f6c;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 5px;
+}
+.terms a:hover {
   text-decoration: underline;
 }
 
-/* Submit button */
-.submit-btn {
-  margin-top: 25px;
-  padding: 12px;
-  background-color: #000;
-  color: white;
-  border: none;
-  border-radius: 6px;
+/* Already Registered */
+.already-registered {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Animation */
+@keyframes slideIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.terms {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 1;
+  position: relative; /* Added this to make the label position absolute relative to .terms */
+}
+
+
+label {
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  background: #fff;
+  padding: 0 4px;
+  font-size: 12px;
+  color: #333;
+  pointer-events: none; /* Keeps the label from interfering with other elements */
+}
+
+
+.terms input[type="checkbox"] {
+  margin: 0;
+  margin-bottom: 5px; /* Adds space below the checkbox */
+  width: 16px;
+  height: 16px;
+}
+
+.terms label {
+  display: flex;
   cursor: pointer;
-  font-size: 15px;
-  font-weight: bold;
-  transition: background-color 0.3s;
+  margin-left: 60px;
+  margin-top: 10px;
 }
 
-.submit-btn:hover {
-  background-color: #333;
+.terms a {
+  color: #002f6c;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 2px;
 }
 
-.submit-btn.signup {
-  background-color: #2c2c9e;
+.terms a:hover {
+  text-decoration: underline;
 }
-
-.submit-btn.signup:hover {
-  background-color: #23237e;
-}
-
-/* ---------- Responsive Media Queries ---------- */
-
-/* Tablet (768px and below) */
-@media (max-width: 992px) {
-  .auth-container {
-    width: 75%;
+@media (max-width: 768px) {
+  .popup-wrapper {
     flex-direction: column;
-    padding: 40px 30px;
-    margin-top: 60px;
+    height: auto; /* Adjust height to fit content */
+    overflow-y: auto;
   }
 
-  .auth-form {
+  .popup-left {
+    display: none; /* Hide the left section */
+  }
+
+  .popup-right {
+    flex: 1;
     padding: 30px 20px;
+    max-height: auto; /* Adjust max-height to fit content */
+    margin: 0 auto; /* Center the right section */
+    width: 100%; /* Ensure the right section is full width */
   }
-
-  .tab-buttons button {
-    font-size: 14px;
-  }
-}
-
-/* Mobile (576px and below) */
-@media (max-width: 576px) {
-  .auth-container {
-    width: 95%;
-    padding: 30px 20px;
-    margin-top: 60px;
-  }
-
-  .auth-form {
-    padding: 20px 15px;
-  }
-
-  .tab-buttons {
-    flex-direction: column;
-  }
-
-  .tab-buttons button {
-    font-size: 13px;
-    padding: 10px;
-  }
-
-  .name-fields {
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .terms {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-  }
-
+  
+  /* Optional: Add padding and margin adjustments for a better login screen view */
   .submit-btn {
-    font-size: 14px;
     padding: 10px;
   }
 }

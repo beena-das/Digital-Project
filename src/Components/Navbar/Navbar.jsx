@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Code, ChevronDown } from 'lucide-react';
 import './Navbar.css';
-import { Link } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 
-
-const Navbar = () => {
+const Navbar = ({ onLoginClick }) => { // Destructure onLoginClick prop
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -22,9 +21,6 @@ const Navbar = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const [isOpen, setIsOpen] = useState(false);
-
-
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
@@ -38,41 +34,44 @@ const Navbar = () => {
         </div>
 
         <div className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
-        <a href="/" className="nav-link active" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
-        <a href="#service" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Service</a>
-        <a href="#about" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>About</a>
-        
-        <div
-          className="nav-link dropdown"
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
-          onMouseEnter={() => {
-            if (window.innerWidth > 768) setIsDropdownOpen(true);
-          }}
-          onMouseLeave={() => {
-            if (window.innerWidth > 768) setIsDropdownOpen(false);
-          }}
-          onClick={() => {
-            if (window.innerWidth <= 768) {
-              toggleDropdown();
-            }
-          }}
-        >
-          <span>Courses <ChevronDown size={16} /></span>
-          {isDropdownOpen && (
-            <div className="dropdown-menu">
-              <a href="#Pcourse" className="dropdown-item" onClick={() => setIsMobileMenuOpen(false)}>Web Development</a>
-              <a href="#Pcourse" className="dropdown-item" onClick={() => setIsMobileMenuOpen(false)}>App Development</a>
-              <a href="#Pcourse" className="dropdown-item" onClick={() => setIsMobileMenuOpen(false)}>Python</a>
-            </div>
-          )}
-        </div>
-        
-        <a href="/contact" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
-        <Link to="/login" className="nav-link">
-          <button onClick={() => setIsMobileMenuOpen(false)}>Login/Signup</button>
-        </Link>
+          <a href="/" className="nav-link active" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
+          <Link smooth to="/#service" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Service</Link>
+          <Link smooth to="/#about" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
 
+          <div
+            className="nav-link dropdown"
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+            onMouseEnter={() => {
+              if (window.innerWidth > 768) setIsDropdownOpen(true);
+            }}
+            onMouseLeave={() => {
+              if (window.innerWidth > 768) setIsDropdownOpen(false);
+            }}
+            onClick={() => {
+              if (window.innerWidth <= 768) {
+                toggleDropdown();
+              }
+            }}
+          >
+            <span>Courses <ChevronDown size={16} /></span>
+            {isDropdownOpen && (
+              <div className="dropdown-menu">
+                <Link smooth to="/#Pcourse" className="dropdown-item" onClick={() => setIsMobileMenuOpen(false)}>Web Development</Link>
+                <Link smooth to="/#Pcourse" className="dropdown-item" onClick={() => setIsMobileMenuOpen(false)}>App Development</Link>
+                <Link smooth to="/#Pcourse" className="dropdown-item" onClick={() => setIsMobileMenuOpen(false)}>Python</Link>
+              </div>
+            )}
+          </div>
 
+          <Link smooth to="/#contact" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
+          <Link to="#" className="nav-link">
+            <button onClick={() => {
+              setIsMobileMenuOpen(false);
+              if (onLoginClick) onLoginClick(); // Trigger modal
+            }}>
+              Sign In
+            </button>
+          </Link>
         </div>
       </div>
     </nav>

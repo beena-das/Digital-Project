@@ -84,6 +84,23 @@
   white-space: nowrap;
 }
 
+/* In Login.css */
+.popup-box {
+  animation: fadeInScale 0.3s ease;
+}
+
+@keyframes fadeInScale {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
 .nav-cta:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 29, 66, 0.2);

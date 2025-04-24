@@ -1,43 +1,35 @@
 import React, { useState } from 'react';
 import './popularCourse.css';
+import { Link } from 'react-router-dom';
+import Login from '../LoginSignup/Login';
 
 const CourseCard = ({ image, title, reviews, users, logo }) => {
-  const [showPopup, setShowPopup] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
 
-  const handleRegisterClick = () => {
-    setShowPopup(true);
+  const handleLoginOpen = () => {
+    setIsLoginOpen(true);
   };
 
-  const handleClosePopup = () => {
-    setShowPopup(false);
+  const handleLoginClose = () => {
+    setIsLoginOpen(false);
   };
 
   return (
     <>
       <div className="course-card">
         <img src={image} alt="Course" className="course-image" />
-         <h3>{title}</h3>
+        <h3>{title}</h3>
         <div className="rating">
           <span>⭐️⭐️⭐️⭐️⭐️</span>
           <p>{reviews} | {users} User Reviews</p>
         </div>
-        <button className="register-btn" onClick={handleRegisterClick}>Register Now</button>
+        <Link to="#" className="nav-link">
+          <button onClick={handleLoginOpen}>Register Now</button>
+        </Link>
       </div>
 
-      {/* Modal Popup */}
-      {showPopup && (
-        <div className="popup-overlay" onClick={handleClosePopup}>
-          <div className="popup-box" onClick={(e) => e.stopPropagation()}>
-            <span className="close-btn" onClick={handleClosePopup}>×</span>
-            <h2>Register for {title}</h2>
-            <form className="register-form">
-              <input type="text" placeholder="Your Name" required />
-              <input type="email" placeholder="Email Address" required />
-              <button type="submit">Submit</button>
-            </form>
-          </div>
-        </div>
-      )}
+      {/* ✅ Render Login Modal */}
+      <Login isOpen={isLoginOpen} onClose={handleLoginClose} />
     </>
   );
 };

@@ -300,11 +300,7 @@
   }
 
   .hero-cta {
-    flex-direction: column;
-    align-items: stretch;
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
+    justify-content: center;
   }
 
   .hero-features {
@@ -335,5 +331,9 @@
 
   .floating-element {
     opacity: 0.5;
+  }
+  
+  .hero-cta {
+    justify-content: center;
   }
 }

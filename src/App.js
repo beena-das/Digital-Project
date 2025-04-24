@@ -1,5 +1,5 @@
 // App.js
-import React from "react";
+import React, { useState } from "react";
 import Navbar from './Components/Navbar/Navbar';
 import './App.css';
 import About from "./Components/About/About";
@@ -13,20 +13,23 @@ import AllCourse from './Components/allCourse/allCourse';
 import Service from "./Components/Services/Services";
 
 function App() {
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+
   return (
     <div className="app-container">
-      <Navbar />
+      <Navbar onLoginClick={() => setIsLoginOpen(true)} />
 
-      {/* flex-grow area */}
+      <Login isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
+      
       <main className="main-content">
         <Routes>
-          <Route path="/" element={<Home/>} />
           <Route path="/about" element={<About />} />
           <Route path="/Pcourse" element={<Pcourse />} />
-          <Route path="/contact" element={<ContactHero/>} />
-          <Route path="/Login" element={<Login/>} />
-          <Route path="/all-course" element={<AllCourse/>} />
-          <Route path="/services" element={<Service/>} />
+          <Route path="/contact" element={<ContactHero />} />
+          <Route path="/all-course" element={<AllCourse />} />
+          <Route path="/services" element={<Service />} />
+          <Route path="/" element={<Home onSignInClick={() => setIsLoginOpen(true)} />} />
+
         </Routes>
       </main>
 

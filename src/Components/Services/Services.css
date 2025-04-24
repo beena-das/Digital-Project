@@ -23,8 +23,8 @@
   .services-section h2 {
     font-size: 36px;
     margin-bottom: 40px;
-    color: #0b0b47;
-    align: center;
+    color: #002f6c;
+    text-align: center;
   }
   
   .services-grid {
@@ -42,6 +42,7 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
     cursor: pointer;
+    text-align: center;
   
     /* Animation */
     opacity: 0;

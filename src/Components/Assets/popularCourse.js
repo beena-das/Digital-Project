@@ -51,7 +51,7 @@ export const popularCourses = [
     },
     {
       image: salesforceimage,
-      title: 'Want to be a Sales Force Professional with Certification?',
+      title: 'Want a Career as a Certified Salesforce Professional?',
       reviews: 5.0,
       users: 7,
       logo: sales,

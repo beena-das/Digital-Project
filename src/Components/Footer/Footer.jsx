@@ -48,7 +48,7 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <div className="footer-contact">
-          <p><strong>Contact Us:</strong> +91 9555981753 | <a href="mailto:support@codersweb.com">support@codersweb.com</a> | Lucknow, Uttar Pradesh</p>
+          <p><strong>Contact Us:</strong>  +1 (555) 123-4567 | <a href="mailto:support@codersweb.com">support@codersweb.com</a> | Lucknow, Uttar Pradesh</p>
         </div>
 
         <div className="footer-social">
